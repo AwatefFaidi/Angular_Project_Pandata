@@ -1,56 +1,40 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-// used to create fake backend
-import { fakeBackendProvider } from './_helpers';
-import { BasicAuthInterceptor, ErrorInterceptor } from './_helpers';
-import { HomeComponent } from './home/home.component';
-
-
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
 import { HttpClientModule,HTTP_INTERCEPTORS  } from '@angular/common/http';
-
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { LoginComponent } from './login/login.component';
-
-
-import { FlexLayoutModule } from '@angular/flex-layout';
-
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialDesignModule } from './material-design/material-design.module';
 import {  MatFormFieldModule} from '@angular/material/form-field';
-import { RegisterComponent } from './register/register.component';
-
-
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { fakeBackendProvider } from './auth';
+import { BasicAuthInterceptor, ErrorInterceptor } from './auth';
+import { HomeComponent } from './views/home/home.component';
+import { LoginComponent } from './views/login/login.component';
+import { AppComponent } from './app.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    LoginComponent,
-    RegisterComponent
-  ],
+    LoginComponent
+      ],
    
   imports: [
     BrowserModule,
-
     MaterialDesignModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    
     FlexLayoutModule,
     MatFormFieldModule,
-    
     FormsModule,
-     ReactiveFormsModule
+    ReactiveFormsModule
 
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true },
-        { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
-
-    // provider used to create fake backend
+     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
     fakeBackendProvider
   ],
   bootstrap: [AppComponent]

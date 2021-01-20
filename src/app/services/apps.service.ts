@@ -9,18 +9,16 @@ export class AppsService {
     constructor(private http: HttpClient) { }
 
     getAll() {
-        //return this.http.get<User[]>(`${environment.apiUrl}/users`);
+       // return this.http.get<User[]>(`${environment.apiUrl}/users`);
     }
     getApp(id:number){
-    //return  this.http.get(`${environment.apiUrl}/users`+id);
+    //return  this.http.get(`${environment.apiUrl}/apps`+id);
      
 
 
   }
   saveApps(apps:App){
     //return  this.http.post(`${environment.apiUrl}/users`,user);
-      
-
 
   }
   updateApps(apps:App){
