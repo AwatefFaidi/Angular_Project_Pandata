@@ -1,17 +1,4 @@
-<nav >
-<nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="user">
-  <div class="navbar-nav">
-    <a class="nav-item nav-link"  routerLink="/home" routerLinkActive="active">Home</a>
-    
-      <a class="nav-item nav-link" routerLink="/listuser">ListUser</a>
-      <a class="nav-item nav-link" routerLink="/newuser">New</a>
-      <a class="nav-item nav-link" routerLink="/listapplication">List</a>
-      <a class="nav-item nav-link" routerLink="/newapplication">NewApplication</a>
-      <a class="nav-item nav-link" routerLink="/login" (click)="logout()">Logout</a>
-  </div>
-</nav>
-<nav >
-  <mat-sidenav-container class="sidenav-container mat-app-background" [ngClass]="{'dark-theme-mode':isDarkTheme}">
+<mat-sidenav-container class="sidenav-container mat-app-background" [ngClass]="{'dark-theme-mode':isDarkTheme}">
     <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
       <mat-toolbar>Menu</mat-toolbar>
@@ -43,17 +30,3 @@
   
     </mat-sidenav-content>
   </mat-sidenav-container>
-<router-outlet></router-outlet>
-  
-
-
-<!-- main app container -->
-<div class="container">
-  <router-outlet></router-outlet>
-</div>
- 
-
- 
-
-<router-outlet></router-outlet>
-      

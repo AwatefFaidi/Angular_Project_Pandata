@@ -1,1 +1,29 @@
-<p>app-list works!</p>
+
+<div class="container spacer">
+    <div class="card">
+      <div class="card-header"> Application_List</div>
+      <div class="card-body" *ngIf="applications">
+          <table class="table table-striped">
+            <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Scope</th>
+            <th>Url</th>
+            </tr>
+            <tr *ngFor="let app  of applications">
+            <td>{{app.id}}</td>
+            <td>{{app.name}}</td>
+            <td>{{app.scope}}</td>
+            <td>{{app.url}}</td>
+            <td>
+              <a (click)="onEditApp(app.id)" class="clickable">Edit</a>
+            </td>
+            <td>
+              <a (click)="onDeleteApp(app)" class="clickable">Delete</a>
+            </td>
+          </tr>
+          </table>
+      </div>
+    </div>
+</div>
+   

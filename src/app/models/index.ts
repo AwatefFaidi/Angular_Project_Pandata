@@ -1,3 +1,3 @@
-export * from './User1';
-export * from './App';
+export * from './users';
+export * from './applications';
 export * from './User';
